@@ -1,9 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   body {
-    @apply bg-slate-800;
+    @apply bg-gray-900;
   }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin-inline: 20px;
+}
+
+.dice {
+  transition: 1s;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(45deg);
+  transition: 1s;
+}
+
+@keyframes rolling {
+  50% {
+    transform: rotateX(445deg) rotateY(445deg);
+  }
+
+  1000% {
+    transform: rotateX(-445deg) rotateY(-445deg);
+  }
+}
+
+.face {
+  border: 6px solid #eeee;
+  background: linear-gradient(145deg, #dddbd8, #fff);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+}
+
+.face::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: #f6f3f0;
+  transform: translateZ(-1px);
+}
+
+.face::after {
+  content: "";
+  width: 18px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 18px;
+  border-radius: 50%;
+  background: #242323;
+}
+
+.face.front {
+  transform: translateZ(50px);
+}
+
+.face.back {
+  transform: rotateX(180deg) translateZ(50px);
+}
+
+.face.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.face.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.face.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.face.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.face.front::after {
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background: #343434;
+}
+
+.face.back::after {
+  margin: -35px 0 0 -30px;
+  box-shadow: 40px 0, 0 25px, 40px 25px, 0 50px, 40px 50px;
+}
+
+.face.top::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 40px;
+}
+
+.face.bottom::after {
+  margin: -35px;
+  box-shadow: 26px 26px, 52px 52px, 52px 0, 0 52px;
+}
+
+.face.right::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 0, 0 40px, 40px 40px;
+}
+
+.face.left::after {
+  margin: -35px 0 0 -35px;
+  box-shadow: 25px 25px, 50px 50px;
+}
+
+.range::-webkit-slider-thumb {
+  height: 40px;
+  width: 40px;
+  appearance: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+  background-color: transparent;
+  height: 40px;
+  width: 40px;
+  appearance: none;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  -moz-appearance: none;
+  content: "16";
 }
