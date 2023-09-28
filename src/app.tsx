@@ -49,8 +49,8 @@ export function App() {
   }, [result]);
 
   return (
-    <div className="mx-10 w-full min-h-screen">
-      <div className="max-w-[800px] w-full m-auto flex justify-center my-20">
+    <div className=" w-full min-h-screen">
+      <div className="max-w-[800px] w-full m-auto  flex justify-center my-20">
         <InputRange
           displayIndicator={displayIndicator}
           verdict={verdictResult}

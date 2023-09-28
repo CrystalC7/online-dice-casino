@@ -6,14 +6,11 @@
 
 @layer components {
   body {
-    @apply bg-gray-900;
+    @apply bg-gray-900 mx-4;
   }
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  margin-inline: 20px;
-}
+
 
 .dice {
   transition: 1s;
